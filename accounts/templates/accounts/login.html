@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST">
+  {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <h1>Login:</h1>
+    <div>Email:</div>
+    <input type="text" id="id_username" name="username" required>
+    <div>{{ form.username.errors }}</div>
+    <div>Password:</div>
+    <input type="text" id="id_password" name="password" required>
+    <div>{{ form.password.errors }}</div>
+    <button type="submit">Login</button>
+
+</form>
+<br/><br/>
+<div>Or sign up <a href="{% url 'accounts:signup' %}">here.</div>
+
+{% endblock %}

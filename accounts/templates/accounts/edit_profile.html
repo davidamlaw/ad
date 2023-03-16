@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Edit Profile:</h1>
+<div>Name: {{ user.first_name }} {{ user.last_name }}</div>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+    <div>Profile Pic:</div>
+    {% if user.profile_set.get.profile_pic %}
+      <div>
+        <img src="{{ user.profile_set.get.profile_pic.url }}">
+      </div>
+    {% else %}
+      <div>No Profile Pic currently set.</div>
+    {% endif %}
+    <div>Click to Upload</div>
+    <input id="id_profile_pic" type="file" accept="image/*" name="profile_pic" value="Upload" />
+    <div>Job Title:
+      <br>
+      <input type="text" name="title" id="id_title"
+      value="{{ user.profile_set.get.title }}">
+    </div>
+    <div>Bio:</div>
+    <div>
+      <textarea name="bio" id="id_bio" rows="8" cols="80">{{ user.profile_set.get.bio }}</textarea>
+    </div>
+    <div>
+      <input type="submit" name="submit" value="Update Profile">
+    </div>
+</form>
+<br/><br/>
+
+{% endblock %}

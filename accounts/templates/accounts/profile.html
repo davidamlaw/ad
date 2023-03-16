@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Profile Settings:</h1>
+<div>Name: {{ user.first_name }} {{ user.last_name }}</div>
+<div>Profile Pic:</div>
+{% if user.profile_set.get.profile_pic %}
+  <div>
+    <img src="{{ user.profile_set.get.profile_pic.url }}">
+  </div>
+{% else %}
+  <div>No Profile Picture currently.</div>
+{% endif %}
+<div>Job Title: {{ user.profile_set.get.title }}</div>
+<div>Bio:</div>
+<div>{{ user.profile_set.get.bio }}</div>
+<br/><br/>
+<a href="{% url 'accounts:edit_profile' %}">
+  <button>Edit Profile</button>
+</a>
+<br/><br/>
+
+{% endblock %}

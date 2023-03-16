@@ -1,0 +1,9 @@
+<nav>
+  <div>Amlaw Design</div>
+  {% if user.is_authenticated %}
+    Welcome: {{ user.first_name }} {{ user.last_name }}
+    <div><a href="{% url 'accounts:logout' %}">Logout</a></div>
+  {% else %}
+    <div><a href="{% url 'accounts:login' %}">Login</a></div>
+  {% endif %}
+</nav>
