@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div>
+    <p>Tell us how we can help you</p>
+  </div>
+
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div>Name:</div>
+    <div>{{ form.name }}</div>
+    <div>{{ form.name.errors }}</div>
+    <div>Email:</div>
+    <div>{{ form.email }}</div>
+    <div>{{ form.email.errors }}</div>
+    <div>Phone:</div>
+    <div>{{ form.phone }}</div>
+    <div>{{ form.phone.errors }}</div>
+    <div>Preferred method of contact:</div>
+    <div>{{ form.preferred }}</div>
+    <div>{{ form.preferred.errors }}</div>
+    <div>Current Website:</div>
+    <div>{{ form.website }}</div>
+    <div>{{ form.website.errors }}</div>
+    <div>Message:</div>
+    <div>{{ form.message }}</div>
+    <div>{{ form.message.errors }}</div>
+    <div>
+      <button type="submit">Send Message</button>
+    </div>
+  </form>
+
+{% endblock %}
