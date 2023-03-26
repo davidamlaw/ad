@@ -137,7 +137,7 @@ STATICFILES_DIRS = [
 BASE_DIR / "static", BASE_DIR / "media"
 ]
 
-LOGIN_REDIRECT_URL = "/accounts/profile"
+LOGIN_REDIRECT_URL = "/accounts/profile/"
 LOGOUT_REDIRECT_URL = "/"
 
 # Default primary key field type
